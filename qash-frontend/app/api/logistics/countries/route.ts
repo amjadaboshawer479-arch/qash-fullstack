@@ -1,0 +1,2 @@
+import { NextResponse } from "next/server";
+export async function GET() { return NextResponse.json({ count: 5, next: null, previous: null, results: [{ code: "JO", name: "Jordan", name_ar: "الأردن" }, { code: "SA", name: "Saudi Arabia", name_ar: "المملكة العربية السعودية" }, { code: "AE", name: "UAE", name_ar: "الإمارات" }, { code: "EG", name: "Egypt", name_ar: "مصر" }, { code: "US", name: "United States", name_ar: "الولايات المتحدة" }] }); }

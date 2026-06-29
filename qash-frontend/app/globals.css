@@ -1,0 +1,249 @@
+@import "tailwindcss";
+
+/* ── Light Mode Variables ─────────────────────────────────────────── */
+@layer base {
+  :root {
+    --brand: #d88f65;
+    --brand-dark: #d88e63;
+    --brand-deep: #c47a52;
+    --teal: #88b0be;
+    --bg: #fffaf6;
+    --surface: #f4f1ea;
+    --border: #e8ded4;
+    --border-soft: #d5c9bc;
+    --text: #1a1a1a;
+    --text-body: #313131;
+    --text-muted: #999999;
+    --card-bg: #ffffff;
+    --input-bg: #ffffff;
+    --input-border: #e8ded4;
+  }
+
+  /* ── Dark Mode Variables ──────────────────────────────────────── */
+  html.dark {
+    --brand: #e09a74;
+    --brand-dark: #d88e63;
+    --brand-deep: #c47a52;
+    --teal: #88b0be;
+    --bg: #141210;
+    --surface: #1e1a16;
+    --border: #2e2820;
+    --border-soft: #3a3028;
+    --text: #f0e6d8;
+    --text-body: #c8b89a;
+    --text-muted: #7a6a5a;
+    --card-bg: #1e1a16;
+    --input-bg: #252018;
+    --input-border: #3a3028;
+  }
+  html.dark img[style*="brightness(0)"] {
+    filter: brightness(0) invert(1) !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  html {
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family:
+      "Cormorant Garamond", "Playfair Display", Georgia, "Times New Roman",
+      serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease;
+  }
+  html[dir="rtl"] body {
+    font-family: "Cairo", "Noto Sans Arabic", "Segoe UI", system-ui, sans-serif;
+  }
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  ::selection {
+    background-color: #d88f65;
+    color: white;
+  }
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--surface);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--brand);
+    border-radius: 2px;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   DARK MODE — full override of all hardcoded inline colors
+   ════════════════════════════════════════════════════════════════════ */
+
+/* Body & page backgrounds */
+html.dark body,
+html.dark main,
+html.dark [style*='backgroundColor: "#FFFAF6"'],
+html.dark [style*="background-color: #FFFAF6"],
+html.dark [style*="background-color: rgb(255, 250, 246)"] {
+  background-color: var(--bg) !important;
+}
+
+/* White card / panel backgrounds */
+html.dark [style*='backgroundColor: "white"'],
+html.dark [style*="background-color: white"],
+html.dark [style*="backgroundColor: white"],
+html.dark .bg-white,
+html.dark [class*="bg-white"] {
+  background-color: var(--card-bg) !important;
+}
+
+/* Surface / #F4F1EA sections */
+html.dark [style*='backgroundColor: "#F4F1EA"'],
+html.dark [style*="background-color: #F4F1EA"],
+html.dark [style*='backgroundColor: "#f4f1ea"'],
+html.dark .bg-\[\#F4F1EA\] {
+  background-color: var(--surface) !important;
+}
+
+/* Input backgrounds */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: var(--input-bg) !important;
+  border-color: var(--input-border) !important;
+  color: var(--text) !important;
+}
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* Border colors */
+html.dark [style*='border: "1px solid #E8DED4"'],
+html.dark [style*='borderColor: "#E8DED4"'],
+html.dark [style*="border-color: #E8DED4"],
+html.dark [style*='borderColor: "#D5C9BC"'] {
+  border-color: var(--border) !important;
+}
+
+/* Text colors */
+html.dark .text-\[\#1A1A1A\],
+html.dark [class*="text-[#1A1A1A]"],
+html.dark [style*='color: "#1A1A1A"'],
+html.dark [style*="color: rgb(26, 26, 26)"] {
+  color: var(--text) !important;
+}
+html.dark .text-\[\#313131\],
+html.dark [class*="text-[#313131]"],
+html.dark [style*='color: "#313131"'] {
+  color: var(--text-body) !important;
+}
+html.dark .text-\[\#1E1E1E\],
+html.dark [class*="text-[#1E1E1E]"] {
+  color: var(--text) !important;
+}
+
+/* Tailwind opacity text variants */
+html.dark .text-\[\#313131\]\/60,
+html.dark .text-\[\#313131\]\/70 {
+  color: var(--text-muted) !important;
+}
+
+/* Dividers and separators */
+html.dark hr,
+html.dark [class*="border-[#E8DED4]"],
+html.dark [class*="border-[#D5C9BC]"] {
+  border-color: var(--border) !important;
+}
+
+/* Dropdown menus */
+html.dark [class*="rounded-xl shadow"] {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--border) !important;
+}
+html.dark [class*="hover:bg-orange-50"]:hover {
+  background-color: var(--surface) !important;
+}
+
+/* Product card background */
+html.dark .bg-\[\#F4F1EA\] {
+  background-color: var(--surface) !important;
+}
+
+/* Skeleton loaders */
+html.dark [class*="animate-pulse"] {
+  background-color: var(--surface) !important;
+}
+
+/* Status badge colors — keep them as-is (amber/blue/green) but adjust bg */
+html.dark .bg-amber-50 {
+  background-color: rgba(251, 191, 36, 0.15) !important;
+}
+html.dark .bg-blue-50 {
+  background-color: rgba(59, 130, 246, 0.15) !important;
+}
+html.dark .bg-green-50 {
+  background-color: rgba(34, 197, 94, 0.15) !important;
+}
+html.dark .bg-purple-50 {
+  background-color: rgba(168, 85, 247, 0.15) !important;
+}
+html.dark .bg-red-50 {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+}
+
+/* ── Swiper Pagination ────────────────────────────────────────────── */
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.6) !important;
+  width: 7px !important;
+  height: 7px !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease !important;
+}
+.swiper-pagination-bullet-active {
+  background: white !important;
+  width: 22px !important;
+  border-radius: 4px !important;
+}
+.swiper-pagination {
+  bottom: 16px !important;
+}
+
+/* ── xs breakpoint (480px) ───────────────────────────────────────── */
+@media (min-width: 480px) {
+  .xs\:block {
+    display: block !important;
+  }
+  .xs\:flex {
+    display: flex !important;
+  }
+  .xs\:hidden {
+    display: none !important;
+  }
+  .xs\:inline {
+    display: inline !important;
+  }
+}
+
+/* ── Line clamp ──────────────────────────────────────────────────── */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
